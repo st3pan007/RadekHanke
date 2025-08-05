@@ -436,11 +436,39 @@
             margin: 0;
         }
 
-        /* Services Section - More Rounded */
+        /* Services Section - NEW STYLES */
         .services {
             position: relative;
             background: var(--white);
             padding-top: 120px;
+        }
+        
+        .services-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px; /* Increased gap between columns */
+            align-items: center;
+        }
+
+        .services-text-column h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            text-align: left; /* Align text to the left */
+        }
+        
+        .services-text-column p {
+            text-align: left; /* Align text to the left */
+            margin-bottom: 2.5rem; /* Space for the button */
+        }
+        
+        .services-cta-button {
+             background: var(--accent);
+             border-color: var(--accent);
+        }
+        
+        .services-cta-button:hover {
+            background: transparent;
+            color: var(--accent);
         }
 
         .services::before {
@@ -467,14 +495,15 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Changed to a 2x2 grid */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 30px;
-            margin-top: 60px;
+            margin-bottom: 20px;
         }
 
         .service-card {
             background: var(--white);
-            padding: 3rem;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid var(--border-light);
@@ -941,6 +970,21 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            
+            /* Services section responsive */
+            .services-layout-grid {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+                gap: 40px;
+            }
+            
+            .services-text-column {
+                text-align: center; /* Center text column content */
+            }
+
+            .services-text-column h2,
+            .services-text-column p {
+                text-align: center;
+            }
 
             .about-circle {
                 width: 280px;
@@ -1179,54 +1223,56 @@
     <section id="services" class="services">
         <div class="floating-shape floating-shape-2"></div>
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Moje služby</h2>
-                <p>Specializuji se na malířské práce v interiérech i exteriérech. Jako zkušený a kvalifikovaný malíř se vždy snažím splnit očekávání svých zákazníků. V interiérech se věnuji zejména malbě stěn, stropů, dveří a oken.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </div>
-                    <h3>Malby interiérů a exteriérů</h3>
+            <div class="services-layout-grid">
+                <div class="services-text-column fade-in">
+                    <h2>Moje služby</h2>
+                    <p>Specializuji se na malířské práce v interiérech i exteriérech. Jako zkušený a kvalifikovaný malíř se vždy snažím splnit očekávání svých zákazníků. V interiérech se věnuji zejména malbě stěn, stropů, dveří a oken.</p>
+                    <a href="#contact" class="cta-button services-cta-button">Nezávazná poptávka</a>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="9" y1="9" x2="15" y2="15"/>
-                            <line x1="15" y1="9" x2="9" y2="15"/>
-                        </svg>
+                
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </div>
+                        <h3>Malby interiérů a exteriérů</h3>
                     </div>
-                    <h3>Nátěry interiérů a exteriérů</h3>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="7" height="7"/>
-                            <rect x="14" y="3" width="7" height="7"/>
-                            <rect x="14" y="14" width="7" height="7"/>
-                            <rect x="3" y="14" width="7" height="7"/>
-                        </svg>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3>Nátěry interiérů a exteriérů</h3>
                     </div>
-                    <h3>Nátěry dveří, oken, nábytku, soklů a podlah</h3>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                        </svg>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <h3>Nátěry dveří, oken a nábytku</h3>
                     </div>
-                    <h3>Fasádní malby</h3>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                        </div>
+                        <h3>Fasádní malby</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <div class="pattern-divider"></div>
 
     <section id="gallery" class="gallery">
