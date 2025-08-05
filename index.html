@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radek Hanke - Malíř / Natěrač | Jablonec nad Nisou</title>
+    <meta name="description" content="Profesionální malíř a natěrač v Jablonci nad Nisou. Specializuji se na malby interiérů, exteriérů, fasád a nátěry všeho druhu.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,18 +16,15 @@
         }
 
         :root {
-            --primary: #2563EB;
-            --primary-dark: #1E40AF;
-            --secondary: #10B981;
-            --accent: #F59E0B;
-            --dark: #1F2937;
-            --gray: #6B7280;
-            --light-gray: #F3F4F6;
+            /* Warm Minimal palette for craftsman */
+            --primary: #F5F5DC;
+            --secondary: #2C2C2C;
+            --accent: #A1887F;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --bg-light: #FAFAF8;
             --white: #FFFFFF;
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --border-light: rgba(44, 44, 44, 0.1);
         }
 
         html {
@@ -34,411 +32,455 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--text-dark);
             background: var(--white);
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
         }
 
-        /* Modern Header */
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Header - Bigger & More Rounded */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-sm);
             z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 0;
+            padding: 2rem 0;
         }
 
-        /* Cool Logo Design */
         .logo {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-            background-size: 200% 100%;
-            animation: gradient-shift 3s ease infinite;
-            border-radius: 2px;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-dark);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-dark);
             font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
+            font-size: 1rem;
             transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--accent);
         }
 
         .contact-nav-btn {
-            background: var(--primary);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
+            background: var(--text-dark);
+            color: var(--white) !important;
+            padding: 1.25rem 3rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1;
+            font-size: 1.05rem;
         }
 
         .contact-nav-btn:hover {
-            background: var(--primary-dark);
+            background: var(--accent);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .contact-nav-btn::after {
-            display: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .mobile-menu {
             display: none;
-            flex-direction: column;
-            gap: 4px;
+            width: 30px;
+            height: 20px;
+            position: relative;
             cursor: pointer;
         }
 
         .mobile-menu span {
-            width: 28px;
-            height: 3px;
-            background: var(--dark);
-            border-radius: 2px;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--text-dark);
             transition: all 0.3s ease;
+            border-radius: 2px;
         }
 
-        /* New Hero Section with Background Images */
+        .mobile-menu span:nth-child(1) { top: 0; }
+        .mobile-menu span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .mobile-menu span:nth-child(3) { bottom: 0; }
+
+        /* Hero Section - More Rounded */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding: 140px 0 80px;
+            background: var(--primary);
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
         }
 
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: -2px;
             left: 0;
             right: 0;
-            bottom: 0;
-            background:
-                linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%),
-                url('https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c59a536c-3084-4964-fe99-3c707e167700/public') left center / cover,
-                url('https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7d042c05-556a-4b16-a5a0-e00e821c5400/public') right center / cover;
-            background-blend-mode: darken, normal, normal;
-            background-size: cover, 50% 100%, 50% 100%;
-            background-repeat: no-repeat;
-            background-position: center, left center, right center;
-            filter: blur(1px);
-            transform: scale(1.05);
+            height: 120px;
+            background: var(--text-dark);
+            clip-path: ellipse(50% 100% at 50% 100%);
         }
 
-        .hero-container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content {
-            padding: 2rem 0;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
         .hero-content h1 {
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
-            font-weight: 800;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            color: var(--text-dark);
         }
 
         .hero-content p {
-            font-size: 1.75rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 2.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2.5rem;
-            background: white;
-            color: var(--primary);
+            display: inline-block;
+            padding: 1.25rem 3.5rem;
+            background: var(--text-dark);
+            color: var(--white);
             text-decoration: none;
-            border-radius: 60px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid var(--text-dark);
+            border-radius: 50px;
         }
 
         .cta-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            background: rgba(255, 255, 255, 0.95);
+            background: transparent;
+            color: var(--text-dark);
+            transform: translateY(-2px);
         }
 
-        /* Photo Gallery Section */
-        .gallery {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .gallery-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .gallery-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-            font-weight: 300;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
+        .hero-images {
             position: relative;
-            height: 350px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            height: 600px;
         }
 
-        .gallery-item::before {
-            content: '';
+        .hero-image {
             position: absolute;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+        }
+
+        .hero-image:nth-child(1) {
+            width: 300px;
+            height: 400px;
             top: 0;
             left: 0;
-            right: 0;
+            z-index: 2;
+        }
+
+        .hero-image:nth-child(2) {
+            width: 280px;
+            height: 380px;
             bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            right: 0;
             z-index: 1;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item img {
+        .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Large gallery items for visual interest */
-        .gallery-item:nth-child(3n+1) {
-            grid-column: span 2;
-            grid-row: span 1;
-        }
-
-        @media (max-width: 968px) {
-            .gallery-item:nth-child(3n+1) {
-                grid-column: span 1;
-            }
-        }
-
-        /* Section Styles */
+        /* Sections - Reduced Spacing */
         section {
-            padding: 6rem 0;
+            padding: 80px 0;
             position: relative;
         }
 
-        .section-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 800;
+        .section-header {
             text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-dark);
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-            font-weight: 300;
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* About Section - Modern */
+        /* Decorative Elements */
+        .section-divider {
+            position: absolute;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .section-divider-top {
+            top: -1px;
+            height: 80px;
+        }
+
+        .section-divider-bottom {
+            bottom: -1px;
+            height: 80px;
+        }
+
+        /* About Section - Dark Modern Style */
         .about {
-            background: var(--light-gray);
+            background: var(--text-dark);
             position: relative;
+            padding: 100px 0;
         }
 
         .about::before {
             content: '';
             position: absolute;
-            top: -100px;
+            top: -80px;
             left: 0;
             right: 0;
-            height: 100px;
-            background: white;
-            transform: skewY(-3deg);
+            height: 80px;
+            background: var(--text-dark);
+            clip-path: ellipse(50% 100% at 50% 0%);
         }
 
-        .about-card {
-            background: white;
-            padding: 4rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow-lg);
-            max-width: 900px;
-            margin: 0 auto;
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
             position: relative;
-            overflow: hidden;
         }
 
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
+        .about-circle {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-circle img {
+            width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            object-fit: cover;
+        }
+
+        .about-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-badge span {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
         }
 
         .about-content {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--gray);
+            color: var(--white);
         }
 
-        /* Services Section - Modern Cards */
-        .services-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            font-size: 1.1rem;
-            color: var(--gray);
+        .about-content .section-subtitle {
+            color: var(--accent);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .about-content h2 {
+            color: var(--white);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .about-content p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-highlight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-highlight-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .about-highlight-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .about-highlight-text {
+            color: var(--white);
+        }
+
+        .about-highlight-text h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .about-highlight-text p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        /* Services Section - More Rounded */
+        .services {
+            position: relative;
+            background: var(--white);
+            padding-top: 120px;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--white);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--bg-light);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 60px;
         }
 
         .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--white);
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            border-radius: 25px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .service-card::before {
@@ -447,143 +489,220 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
             transform: translateX(-100%);
             transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
         }
 
         .service-card:hover::before {
             transform: translateX(0);
         }
 
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
         .service-icon {
             width: 70px;
             height: 70px;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-            border-radius: 20px;
+            margin: 0 auto 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .service-icon svg {
-            width: 35px;
-            height: 35px;
-            stroke: var(--primary);
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Work Section - Premium Design */
-        .work {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            position: relative;
-        }
-
-        .work-content {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            text-align: center;
-        }
-
-        .work-content p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            position: relative;
+            background: var(--bg-light);
+            border-radius: 20px;
             transition: all 0.3s ease;
         }
 
-        .benefit-icon {
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: var(--primary);
+        }
+
+        .service-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* Gallery Section - Rounded & Flowing */
+        .gallery {
+            background: var(--bg-light);
+            position: relative;
+            padding: 120px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-item:nth-child(1),
+        .gallery-item:nth-child(5) {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Geometric Pattern Divider */
+        .pattern-divider {
+            height: 100px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pattern-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 35px,
+                var(--border-light) 35px,
+                var(--border-light) 36px
+            );
+        }
+
+        /* Why Choose Me Section */
+        .work {
+            background: var(--white);
+            position: relative;
+        }
+
+        .work::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--white);
+            clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefit-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            background: var(--white);
             width: 80px;
             height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-lg);
+            border-radius: 25px;
+            margin: 0 auto 1.5rem;
         }
 
-        .benefit-icon svg {
-            width: 40px;
-            height: 40px;
-            stroke: white;
-            fill: none;
-            stroke-width: 2.5;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
+        .benefit-item h3 {
             margin-bottom: 1rem;
+            font-weight: 400;
         }
 
-        .benefit-card p {
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* Contact Section */
+        /* Contact Section - Split Layout with Wave */
         .contact {
-            background: var(--light-gray);
+            background: var(--primary);
+            position: relative;
+            padding-top: 120px;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--primary);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
         }
 
         .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
-            align-items: stretch;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .contact-info {
-            background: var(--dark);
-            color: var(--white);
+            background: var(--white);
             padding: 3rem;
-            border-radius: 24px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-details {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 2.5rem;
-            box-shadow: var(--shadow-lg);
+            gap: 2rem;
         }
 
         .contact-item {
@@ -593,86 +712,144 @@
         }
 
         .contact-icon {
-            flex-shrink: 0;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            background: var(--primary);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent);
+            transform: scale(1.1);
         }
 
         .contact-icon svg {
             width: 28px;
             height: 28px;
-            stroke: var(--white);
+            stroke: var(--text-dark);
+            fill: none;
+            stroke-width: 1.5;
         }
 
-        .contact-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .contact-item-text h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
             margin-bottom: 0.25rem;
-            color: var(--white);
-            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
         }
 
-        .contact-item p, .contact-item a {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--white);
-            opacity: 0.7;
+        .contact-item-text p,
+        .contact-item-text a {
+            font-size: 1.125rem;
+            color: var(--text-dark);
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            opacity: 1;
+        .contact-item-text a:hover {
+            color: var(--accent);
         }
 
         .contact-map {
-            height: 550px;
-            border-radius: 24px;
+            height: 500px;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
         }
 
         .contact-map iframe {
             width: 100%;
             height: 100%;
             border: 0;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
         }
 
-        /* Footer */
+        .contact-map:hover iframe {
+            filter: grayscale(0%);
+        }
+
+        /* Footer - Premium Design */
         footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
+            background: var(--text-dark);
+            color: var(--white);
             padding: 3rem 0;
+            position: relative;
         }
 
-        footer p {
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--text-dark);
+            clip-path: ellipse(50% 100% at 50% 0%);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 0.875rem;
             opacity: 0.8;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .footer-right a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-right a:hover {
+            opacity: 1;
+        }
+
+        .footer-logo {
+            height: 24px;
+            width: auto;
+            margin-left: 0.5rem;
         }
 
         /* Mobile Navigation */
         .mobile-nav {
-            display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.98);
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
             z-index: 999;
-            padding: 2rem;
+            transition: left 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .mobile-nav.active {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            left: 0;
         }
 
         .mobile-nav-links {
@@ -681,49 +858,127 @@
         }
 
         .mobile-nav-links li {
-            margin: 1.5rem 0;
+            margin: 2rem 0;
         }
 
         .mobile-nav-links a {
             font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--dark);
+            color: var(--text-dark);
             text-decoration: none;
+            font-weight: 400;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .close-mobile-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards;
+        .close-mobile-menu::before,
+        .close-mobile-menu::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--text-dark);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .close-mobile-menu::after {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .floating-shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 10%;
+            right: -150px;
+        }
+
+        .floating-shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            bottom: 20%;
+            left: -100px;
         }
 
         /* Responsive Design */
         @media (max-width: 968px) {
-            .hero-container {
+            .container {
+                padding: 0 24px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
+            .hero-images {
+                display: none;
             }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-circle {
+                width: 280px;
+                height: 280px;
+                margin: 0 auto;
+            }
+
+            .about-badge {
+                font-size: 2rem;
+            }
+
+            .about-highlights {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(5) {
+                grid-row: span 1;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
             .contact-wrapper {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 40px;
             }
 
             .contact-map {
-                height: 400px;
+                height: 350px;
             }
         }
 
@@ -733,46 +988,95 @@
             }
 
             .mobile-menu {
-                display: flex;
+                display: block;
             }
 
-            .logo {
-                font-size: 2rem;
-            }
-
-            .hero h1 {
+            h1 {
                 font-size: 2.5rem;
             }
 
-            .section-title {
+            h2 {
                 font-size: 2rem;
             }
 
-            .services-grid,
-            .benefits {
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+
+            .about-wrapper {
+                gap: 40px;
+            }
+
+            .about-image {
+                margin-bottom: 2rem;
+            }
+
+            .about-badge {
+                top: 10px;
+                left: 10px;
+                padding: 1rem;
+                font-size: 1.5rem;
+            }
+
+            .about-badge span {
+                font-size: 0.75rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .about-content p {
+                font-size: 1.125rem;
+            }
+
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-card {
-                padding: 2.5rem;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
 
-            .gallery-item {
-                height: 250px;
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
-            
+
             .contact-info {
-                padding: 2.5rem;
+                padding: 2rem;
             }
+        }
 
-            .contact-map {
-                height: 350px;
-            }
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .floating-shape {
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .floating-shape-2 {
+            animation-delay: 5s;
         }
     </style>
 </head>
 <body>
-    <header id="header">
+    <header>
         <nav class="container">
             <div class="logo">RADEK HANKE</div>
             <ul class="nav-links">
@@ -780,7 +1084,7 @@
                 <li><a href="#about">O mně</a></li>
                 <li><a href="#services">Služby</a></li>
                 <li><a href="#gallery">Galerie</a></li>
-                <li><a href="#work">Moje práce</a></li>
+                <li><a href="#work">Proč já</a></li>
                 <li><a href="#contact" class="contact-nav-btn">Kontakt</a></li>
             </ul>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
@@ -792,29 +1096,33 @@
     </header>
 
     <div class="mobile-nav" id="mobileNav">
+        <div class="close-mobile-menu" onclick="toggleMobileMenu()"></div>
         <ul class="mobile-nav-links">
             <li><a href="#home" onclick="toggleMobileMenu()">Domů</a></li>
             <li><a href="#about" onclick="toggleMobileMenu()">O mně</a></li>
             <li><a href="#services" onclick="toggleMobileMenu()">Služby</a></li>
             <li><a href="#gallery" onclick="toggleMobileMenu()">Galerie</a></li>
-            <li><a href="#work" onclick="toggleMobileMenu()">Moje práce</a></li>
+            <li><a href="#work" onclick="toggleMobileMenu()">Proč já</a></li>
             <li><a href="#contact" onclick="toggleMobileMenu()">Kontakt</a></li>
         </ul>
     </div>
 
     <section id="home" class="hero">
+        <div class="floating-shape floating-shape-1"></div>
         <div class="container">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="fade-in-up">Radek Hanke</h1>
-                    <p class="fade-in-up">Malíř / Natěrač – interiéry, exteriéry, nátěry</p>
-                    <a href="#contact" class="cta-button fade-in-up">
-                        Kontaktujte mě
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <h1>Radek Hanke</h1>
+                    <p>Malíř / Natěrač<br>interiéry, exteriéry, nátěry</p>
+                    <a href="#contact" class="cta-button">Nezávazná poptávka</a>
+                </div>
+                <div class="hero-images">
+                    <div class="hero-image">
+                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c59a536c-3084-4964-fe99-3c707e167700/public" alt="Malířské práce">
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7d042c05-556a-4b16-a5a0-e00e821c5400/public" alt="Natěračské práce">
+                    </div>
                 </div>
             </div>
         </div>
@@ -822,22 +1130,62 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">O mně</h2>
-            <div class="about-card">
-                <div class="about-content">
-                    <p>Jsem zkušený malíř specializující se na precizní malování interiérů a exteriérů. Každou zakázku přistupuji s péčí a respektem k vašemu prostoru. Nabízím široké spektrum malířských prací včetně nátěrů a renovací. Vždy dodržuji domluvené termíny a dbám na to, aby výsledek odpovídal vašim představám. Spokojení zákazníci jsou mojí nejlepší vizitkou. Rád vám pomohu s realizací vašich nápadů.</p>
+            <div class="about-wrapper">
+                <div class="about-image fade-in">
+                    <div class="about-circle">
+                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c59a536c-3084-4964-fe99-3c707e167700/public" alt="Radek Hanke">
+                    </div>
+                    <div class="about-badge">
+                        15+
+                        <span>let zkušeností</span>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <div class="section-subtitle">Kdo jsem</div>
+                    <h2>Zkušený malíř přinášející kvalitní výsledky.</h2>
+                    <p>Jsem profesionální malíř a natěrač specializující se na precizní malování interiérů a exteriérů. Každou zakázku přistupuji s péčí a respektem k vašemu prostoru.</p>
+                    <p>Vždy dodržuji domluvené termíny a dbám na to, aby výsledek odpovídal vašim představám. Spokojení zákazníci jsou mojí nejlepší vizitkou.</p>
+                    <div class="about-highlights">
+                        <div class="about-highlight">
+                            <div class="about-highlight-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 11l3 3L22 4"/>
+                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                                </svg>
+                            </div>
+                            <div class="about-highlight-text">
+                                <h4>Kvalitní práce</h4>
+                                <p>Precizní provedení</p>
+                            </div>
+                        </div>
+                        <div class="about-highlight">
+                            <div class="about-highlight-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="about-highlight-text">
+                                <h4>Včasné dodání</h4>
+                                <p>Dodržuji termíny</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="services">
+        <div class="floating-shape floating-shape-2"></div>
         <div class="container">
-            <h2 class="section-title">Moje služby</h2>
-            <p class="section-subtitle">Specializuji se na malířské práce v interiérech i exteriérech. Jako zkušený a kvalifikovaný malíř se vždy snažím splnit očekávání svých zákazníků. V interiérech se věnuji zejména malbě stěn, stropů, dveří a oken.</p>
+            <div class="section-header fade-in">
+                <h2>Moje služby</h2>
+                <p>Specializuji se na malířské práce v interiérech i exteriérech. Jako zkušený a kvalifikovaný malíř se vždy snažím splnit očekávání svých zákazníků. V interiérech se věnuji zejména malbě stěn, stropů, dveří a oken.</p>
+            </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -846,15 +1194,17 @@
                     </div>
                     <h3>Malby interiérů a exteriérů</h3>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
                         </svg>
                     </div>
                     <h3>Nátěry interiérů a exteriérů</h3>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24">
                             <rect x="3" y="3" width="7" height="7"/>
@@ -865,7 +1215,7 @@
                     </div>
                     <h3>Nátěry dveří, oken, nábytku, soklů a podlah</h3>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -877,40 +1227,44 @@
         </div>
     </section>
 
+    <div class="pattern-divider"></div>
+
     <section id="gallery" class="gallery">
         <div class="container">
-            <h2 class="gallery-title">Galerie mých prací</h2>
-            <p class="gallery-subtitle">Ukázky realizovaných projektů - interiéry, exteriéry a detaily</p>
+            <div class="section-header fade-in">
+                <h2>Galerie mých prací</h2>
+                <p>Ukázky realizovaných projektů - interiéry, exteriéry a detaily</p>
+            </div>
             
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/72278a52-98be-4bcf-cf8a-8973bbaade00/public" alt="Malířské práce 1">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/bd0d84ce-1bcb-45a7-230f-ec5d0a5ae500/public" alt="Malířské práce 2">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/13b0e40a-c761-44f8-9c71-ca20ff8fad00/public" alt="Malířské práce 3">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/676e51af-bc56-4dbb-5012-d8b8cfb75700/public" alt="Malířské práce 4">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/6c271dba-c8c5-4310-fff2-a6ae1f32ab00/public" alt="Malířské práce 5">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f8b42606-9868-48da-786b-561be6de5a00/public" alt="Malířské práce 6">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/81bb036b-c627-4c7f-b534-a05becde2800/public" alt="Malířské práce 7">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e3b374b1-f20a-4d67-98ab-2aa4eb3f9900/public" alt="Malířské práce 8">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/cdffd862-678b-4eb7-916d-2e9af19f6400/public" alt="Malířské práce 9">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/1d5fa647-54da-4ece-400f-09fd5b2aaf00/public" alt="Malířské práce 10">
                 </div>
             </div>
@@ -919,40 +1273,25 @@
 
     <section id="work" class="work">
         <div class="container">
-            <h2 class="section-title">Proč si vybrat právě mě</h2>
-            <div class="work-content">
+            <div class="section-header fade-in">
+                <h2>Proč si vybrat právě mě</h2>
                 <p>Vždy se snažím poskytnout kvalitní a profesionální služby přesně podle vašich požadavků. Pracuji převážně individuálně s maximální pečlivostí, protože spokojenost zákazníka je pro mě prioritou.</p>
                 <p>Získáte ve mně spolehlivého partnera pro váš domov. S mnohaletými zkušenostmi nabízím profesionální a precizní práci, která splní vaše očekávání. Nechte své interiéry a exteriéry ožít barvami a kvalitními nátěry, které budou odolné a dlouhodobě krásné.</p>
             </div>
             
-            <div class="benefits">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                    </div>
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-number">01</div>
                     <h3>Kvalitní práce</h3>
                     <p>Precizní a profesionální provedení malířských prací</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-number">02</div>
                     <h3>Individuální přístup</h3>
                     <p>Naslouchám představám a požadavkům každého zákazníka</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-number">03</div>
                     <h3>Konkurenční ceny</h3>
                     <p>Nabízím výhodné ceny na moje služby i materiál</p>
                 </div>
@@ -962,44 +1301,56 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Kontakt</h2>
-            <p class="section-subtitle">Máte dotaz nebo zájem o mé služby? Neváhejte mě kontaktovat.</p>
+            <div class="section-header fade-in">
+                <h2>Kontakt</h2>
+                <p>Máte dotaz nebo zájem o mé služby? Neváhejte mě kontaktovat.</p>
+            </div>
             <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <div class="contact-info fade-in">
+                    <h3>Spojme se</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Adresa</h4>
+                                <p>Skelná 69, Jablonec nad Nisou, 46601</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4>Adresa</h4>
-                            <p>Skelná 69, Jablonec nad Nisou, 46601</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>E-mail</h4>
+                                <p><a href="mailto:hankemn@gmail.com">hankemn@gmail.com</a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div>
-                            <h4>E-mail</h4>
-                            <p><a href="mailto:hankemn@gmail.com">hankemn@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </div>
-                        <div>
-                            <h4>Telefon</h4>
-                            <p><a href="tel:+420723738619">+420 723 738 619</a></p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Telefon</h4>
+                                <p><a href="tel:+420723738619">+420 723 738 619</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-map">
+                <div class="contact-map fade-in">
                     <iframe
                         src="https://maps.google.com/maps?q=Skeln%C3%A1%2069%2C%20Jablonec%20nad%20Nisou%2C%2046601&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
-                        style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -1011,21 +1362,21 @@
 
     <footer>
         <div class="container">
-            <p>© 2024 Radek Hanke - Malíř / Natěrač. Všechna práva vyhrazena.</p>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>© 2024 Radek Hanke - Malíř / Natěrač. Všechna práva vyhrazena.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="https://www.mescon.cz/webove-stranky/" target="_blank" rel="noopener noreferrer">
+                        Webové stránky od mescon
+                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/40be5d28-47ca-4830-fcae-0a3ee9e60200/public" alt="Mescon logo" class="footer-logo">
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
         // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
@@ -1038,7 +1389,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 80;
+                    const offset = 100;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({
                         top: targetPosition,
@@ -1048,7 +1399,7 @@
             });
         });
 
-        // Intersection Observer for animations
+        // Fade in animations on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1057,18 +1408,23 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.service-card, .benefit-card, .about-card, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+            }
         });
     </script>
 </body>
